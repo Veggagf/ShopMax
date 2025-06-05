@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopMax - Descubre el Futuro del Shopping</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ShopMax</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="loadPage('home')">🏠 Inicio</a></li>
+                <li><a href="#" onclick="loadPage('product')">📦 Productos</a></li>
+                <li><a href="#" onclick="loadPage('sellers')">🏪 Vendedores</a></li>
+                <li><a href="#" onclick="loadPage('influencers')">⭐ Influencers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="principal-section">
+            <h1>EL FUTURO DEL SHOPPING</h1>
+            <p>Descubre productos increíbles, compara precios en tiempo real y encuentra las mejores ofertas de</p>
+            <span>AMAZON</span>
+            
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="¿Qué estás buscando hoy? Prueba con 'iPhone', 'Gaming', 'Moda'..." id="searchInput">
+                    <button class="search-btn" onclick="searchProducts()">
+                        🚀 BUSCAR <span class="loading" id="loadingSpinner" style="display: none;"></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories-section">
+            <h2 class="section-title">🌟 EXPLORA CATEGORÍAS</h2>
+            <div class="categories-grid" id="categoriesGrid">
+                <div class="category-card" onclick="searchByCategory('Electronics')">
+                    <span class="category-icon">📱</span>
+                    <h3>Electrónicos</h3>
+                    <p>Smartphones, laptops, gadgets y la última tecnología</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('Fashion')">
+                    <span class="category-icon">👙👕👖</span>
+                    <h3>Moda</h3>
+                    <p>Ropa, zapatos, accesorios y tendencias</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('Home')">
+                    <span class="category-icon">🏠</span>
+                    <h3>Hogar</h3>
+                    <p>Decoración, muebles y artículos para el hogar</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('Sports')">
+                    <span class="category-icon">⚽</span>
+                    <h3>Deportes</h3>
+                    <p>Equipamiento deportivo y fitness</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('Beauty')">
+                    <span class="category-icon">💄</span>
+                    <h3>Belleza</h3>
+                    <p>Cosméticos, cuidado personal y skincare</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('Gaming')">
+                    <span class="category-icon">🎮</span>
+                    <h3>Gaming</h3>
+                    <p>Videojuegos, consolas y accesorios gamer</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="deals-section">
+            <h2 class="section-title">🔥 OFERTAS EXPLOSIVAS</h2>
+            <div class="deals-grid" id="dealsGrid">
+                <div class="deal-card">
+                    <div class="deal-badge">-70%</div>
+                    <h3>🎧 AirPods Pro Max</h3>
+                    <div class="deal-price">
+                        $199 <span class="deal-original">$649</span>
+                    </div>
+                    <p>Cancelación de ruido premium y audio espacial</p>
+                </div>
+                <div class="deal-card">
+                    <div class="deal-badge">-55%</div>
+                    <h3>💻 MacBook Air M2</h3>
+                    <div class="deal-price">
+                        $899 <span class="deal-original">$1,999</span>
+                    </div>
+                    <p>Chip M2, 256GB SSD, 8GB RAM</p>
+                </div>
+                <div class="deal-card">
+                    <div class="deal-badge">-45%</div>
+                    <h3>📱 iPhone 15 Pro</h3>
+                    <div class="deal-price">
+                        $649 <span class="deal-original">$1,199</span>
+                    </div>
+                    <p>Titanio, cámara de 48MP, USB-C</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="/js/index.js"></script>
+</body>
+</html>

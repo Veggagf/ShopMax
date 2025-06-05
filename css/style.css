@@ -1,0 +1,419 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #fff; 
+    color: #3a8dde;   
+    overflow-x: hidden;
+}
+
+
+/* Header */
+header {
+    position: relative;
+    z-index: 1000;
+    padding: 20px 0;
+    background: rgba(65, 1, 255, 0.5);
+    backdrop-filter: blur(20px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+nav {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.logo {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5rem;
+    font-weight: 900;
+    background-color: transparent;
+    color: #fff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #fff; /* Morado para contraste */
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 25px;
+    background: rgba(58, 141, 222, 0.08);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.nav-links a:hover {
+    background: rgba(124, 58, 237, 0.2);
+    border-color: #ffe066;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 224, 102, 0.2);
+}
+
+/*Principal section*/
+.principal-section {
+    text-align: center;
+    padding: 100px 30px;
+    position: relative;
+}
+
+.principal-section h1 {
+    font-family: 'Orbitron', monospace;
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px #a78bfa55;
+}
+
+.principal-section p {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+    text-shadow: 0 0 20px #a78bfa33;
+}
+
+.principal-section span {
+    font-family: 'Orbitron', monospace;
+    color: #7c3aed;
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 0 0 20px #3a8dde33;
+}
+
+/* Search Bar */
+.search-container {
+    max-width: 800px;
+    margin: 40px auto;
+    position: relative;
+}
+
+.search-bar {
+    display: flex;
+    background-color: #f4f7ff;
+    border-radius: 50px;
+    padding: 8px;
+    box-shadow: 0 20px 60px rgba(0, 30, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-color: #a78bfa;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    padding: 20px 30px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    background: transparent;
+    color: #3a8dde;
+    outline: none;
+}
+
+.search-input::placeholder {
+    color: #a78bfa;
+}
+
+.search-btn {
+    background: linear-gradient(45deg, #ffe066, #ffd600);
+    border: none;
+    padding: 20px 40px;
+    border-radius: 50px;
+    color: #7c3aed;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.search-btn:hover {
+    box-shadow: 0 10px 30px #ffe06655;
+}
+
+/* Categories Grid */
+.categories-section {
+    padding: 80px 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #7c3aed;
+    text-shadow: 0 0 20px #3a8dde22;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.category-card {
+    background: rgba(167, 139, 250, 0.08);
+    border: 2px solid #7c3aed22;
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.category-card:hover::before {
+    animation: shimmer 1s ease-in-out;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
+}
+
+.category-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: #ffe066;
+    box-shadow: 0 20px 50px #ffe06633;
+}
+
+.category-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.category-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: #3a8dde;
+}
+
+.category-card p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    line-height: 1.6;
+    color: #7c3aed;
+}
+
+/* Deals Section */
+.deals-section {
+    background-color: rgba(159, 91, 253, 0.9);
+    padding: 80px 30px;
+    backdrop-filter: blur(10px);
+}
+
+.deals-section h2 {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #ffe066;
+    text-shadow: 0 0 20px #ffffff22;
+}
+
+.deals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.deal-card {
+    background: linear-gradient(135deg, rgba(129, 192, 255, 1), rgba(196, 161, 255, 1));    
+    border-radius: 20px;
+    padding: 30px;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: #f4f7ff 0 10px 30px rgba(254, 254, 255, 0.4);
+    cursor: pointer;
+}
+
+.deal-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: left 0.6s ease;
+}
+
+.deal-card:hover::after {
+    left: 100%;
+}
+
+.deal-card:hover {
+    transform: scale(1.05) rotateY(5deg);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+.deal-badge {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    background: #ffe066;
+    color: #7c3aed;
+    padding: 10px 20px;
+    border-radius: 0 0 15px 15px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.deal-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.deal-price {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+    font-family: 'Orbitron', monospace;
+}
+
+.deal-original {
+    text-decoration: line-through;
+    opacity: 0.7;
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+/*Sección para hacerlo responsivo*/
+
+/*Pantallas medianas*/
+@media (max-width: 1024px) {
+    body {
+        font-size: 1rem;
+    }
+    .logo {
+        font-size: 2rem;
+    }
+    .categories-section,
+    .deals-section {
+        padding: 40px 10px;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/*Tablets y móviles*/
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 10px;
+    }
+    .logo {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .hero {
+        padding: 60px 10px;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1.1rem;
+    }
+    .search-bar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 8px 4px;
+    }
+    .categories-section {
+        padding: 40px 5px;
+    }
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .category-card {
+        padding: 25px 10px;
+    }
+    .deals-section {
+        padding: 40px 5px;
+    }
+    .deals-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .deal-card {
+        padding: 20px 10px;
+    }
+}
+
+/*Móviles pequeños*/
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.1rem;
+    }
+    .hero {
+        padding: 30px 2px;
+    }
+    .hero h1 {
+        font-size: 1.2rem;
+    }
+    .section-title {
+        font-size: 1.2rem;
+    }
+    .category-card {
+        padding: 15px 4px;
+    }
+    .deal-card {
+        padding: 12px 4px;
+    }
+    .search-btn {
+        padding: 12px 10px;
+        font-size: 1rem;
+    }
+    .search-input {
+        padding: 12px 10px;
+        font-size: 1rem;
+    }
+}
