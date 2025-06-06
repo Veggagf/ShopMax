@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopMax - Explorador de Productos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/products.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ShopMax</div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="principal-section">
+            <h1>EXPLORADOR DE PRODUCTOS</h1>
+            <p>Encuentra los mejores productos de Amazon con tecnología avanzada</p>
+        </div>
+
+            <h3>🚀 BÚSQUEDA INTELIGENTE</h3>
+            <div class="search-controls">
+                <input type="text" id="searchQuery" placeholder="¿Qué estás buscando hoy? Prueba con 'iPhone', 'Gaming', 'Moda'...">
+                <select id="countryCode">
+                    <option value="MX">🇲🇽</option>
+                </select>
+                <button class="btn" onclick="searchProducts()">🔍 BUSCAR</button>
+            </div>
+            <!-- Primer Carrusel - Tecnología -->
+<div class="carousel-section">
+    <h4>🚀 TECNOLOGÍA AVANZADA</h4>
+    <div class="carousel-container">
+        <button class="carousel-btn carousel-prev" onclick="prevSlide('tech')">‹</button>
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="techCarousel">
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=📱" alt="iPhone 15 Pro">
+                        <h5>iPhone 15 Pro Max</h5>
+                        <p class="price">$1,199.99</p>
+                        <button class="preview-btn" onclick="viewProduct('iphone15')">Ver más</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=💻" alt="MacBook Pro">
+                        <h5>MacBook Pro M3</h5>
+                        <p class="price">$1,999.99</p>
+                        <button class="preview-btn" onclick="viewProduct('macbook')">Ver más</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=🎧" alt="AirPods Pro">
+                        <h5>AirPods Pro 2</h5>
+                        <p class="price">$249.99</p>
+                        <button class="preview-btn" onclick="viewProduct('airpods')">Ver más</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=⌚" alt="Apple Watch">
+                        <h5>Apple Watch Ultra 2</h5>
+                        <p class="price">$799.99</p>
+                        <button class="preview-btn" onclick="viewProduct('watch')">Ver más</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=📷" alt="Canon Camera">
+                        <h5>Canon EOS R6 Mark II</h5>
+                        <p class="price">$2,499.99</p>
+                        <button class="preview-btn" onclick="viewProduct('camera')">Ver más</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=🖥️" alt="iMac">
+                        <h5>iMac 24" M3</h5>
+                        <p class="price">$1,299.99</p>
+                        <button class="preview-btn" onclick="viewProduct('imac')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-btn carousel-next" onclick="nextSlide('tech')">›</button>
+    </div>
+    <div class="carousel-dots" id="techDots">
+        <span class="dot active" onclick="goToSlide('tech', 0)"></span>
+        <span class="dot" onclick="goToSlide('tech', 1)"></span>
+        <span class="dot" onclick="goToSlide('tech', 2)"></span>
+    </div>
+</div>
+
+<!-- Segundo Carrusel - Gaming -->
+<div class="carousel-section">
+    <h4>🎮 GAMING EXTREMO</h4>
+    <div class="carousel-container gaming">
+        <button class="carousel-btn carousel-prev" onclick="prevSlide('gaming')">‹</button>
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="gamingCarousel">
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=🎮" alt="PS5 Pro">
+                        <h5>PlayStation 5 Pro</h5>
+                        <p class="price">$699.99</p>
+                        <button class="preview-btn" onclick="viewProduct('ps5pro')">Ver más</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=🎯" alt="Xbox Series X">
+                        <h5>Xbox Series X</h5>
+                        <p class="price">$499.99</p>
+                        <button class="preview-btn" onclick="viewProduct('xbox')">Ver más</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=🕹️" alt="Nintendo Switch">
+                        <h5>Nintendo Switch OLED</h5>
+                        <p class="price">$349.99</p>
+                        <button class="preview-btn" onclick="viewProduct('switch')">Ver más</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=🖱️" alt="Gaming Mouse">
+                        <h5>Logitech G Pro X</h5>
+                        <p class="price">$149.99</p>
+                        <button class="preview-btn" onclick="viewProduct('mouse')">Ver más</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=⌨️" alt="Gaming Keyboard">
+                        <h5>Razer BlackWidow V4</h5>
+                        <p class="price">$199.99</p>
+                        <button class="preview-btn" onclick="viewProduct('keyboard')">Ver más</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=🎧" alt="Gaming Headset">
+                        <h5>SteelSeries Arctis 7P+</h5>
+                        <p class="price">$169.99</p>
+                        <button class="preview-btn" onclick="viewProduct('headset')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-btn carousel-next" onclick="nextSlide('gaming')">›</button>
+    </div>
+    <div class="carousel-dots" id="gamingDots">
+        <span class="dot active" onclick="goToSlide('gaming', 0)"></span>
+        <span class="dot" onclick="goToSlide('gaming', 1)"></span>
+        <span class="dot" onclick="goToSlide('gaming', 2)"></span>
+    </div>
+</div>
+
+<!-- Tercer Carrusel - Lifestyle -->
+<div class="carousel-section">
+    <h4>✨ LIFESTYLE & MODA</h4>
+    <div class="carousel-container lifestyle">
+        <button class="carousel-btn carousel-prev" onclick="prevSlide('lifestyle')">‹</button>
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="lifestyleCarousel">
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=👟" alt="Nike Air Jordan">
+                        <h5>Nike Air Jordan 4</h5>
+                        <p class="price">$199.99</p>
+                        <button class="preview-btn" onclick="viewProduct('jordan')">Ver más</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=👕" alt="Supreme Hoodie">
+                        <h5>Supreme Box Logo Hoodie</h5>
+                        <p class="price">$89.99</p>
+                        <button class="preview-btn" onclick="viewProduct('hoodie')">Ver más</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=🕶️" alt="Ray-Ban">
+                        <h5>Ray-Ban Aviator Classic</h5>
+                        <p class="price">$154.99</p>
+                        <button class="preview-btn" onclick="viewProduct('rayban')">Ver más</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=🎒" alt="Backpack">
+                        <h5>Herschel Little America</h5>
+                        <p class="price">$99.99</p>
+                        <button class="preview-btn" onclick="viewProduct('backpack')">Ver más</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=💄" alt="Makeup Kit">
+                        <h5>Fenty Beauty Set</h5>
+                        <p class="price">$79.99</p>
+                        <button class="preview-btn" onclick="viewProduct('makeup')">Ver más</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="product-preview">
+                        <img src="https://via.placeholder.com/150x150?text=⌚" alt="Fashion Watch">
+                        <h5>Daniel Wellington Classic</h5>
+                        <p class="price">$189.99</p>
+                        <button class="preview-btn" onclick="viewProduct('dw')">Ver más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-btn carousel-next" onclick="nextSlide('lifestyle')">›</button>
+    </div>
+    <div class="carousel-dots" id="lifestyleDots">
+        <span class="dot active" onclick="goToSlide('lifestyle', 0)"></span>
+        <span class="dot" onclick="goToSlide('lifestyle', 1)"></span>
+        <span class="dot" onclick="goToSlide('lifestyle', 2)"></span>
+    </div>
+</div>
+           
+        </div>
+
+        <div id="results">
+            <div class="loading" style="display: none;">
+                <p>🔄 Cargando productos increíbles...</p>
+            </div>
+            <div id="productsContainer" class="products-grid"></div>
+        </div>
+ 
+
+    <!-- Modal para detalles del producto -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="productDetails"></div>
+        </div>
+    </div>
+
+</body>
+</html>
