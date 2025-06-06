@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vendedores - ShopMax</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/sellers.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+        <nav>
+            <div class="logo">ShopMax</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="loadPage('home')">🏠 Inicio</a></li>
+                <li><a href="#" onclick="loadPage('product')">📦 Productos</a></li>
+                <li><a href="#" onclick="loadPage('sellers')">🏪 Vendedores</a></li>
+                <li><a href="#" onclick="loadPage('influencers')">⭐ Influencers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+  <section class="sellers-hero">
+    <h1>Vendedores destacados</h1>
+    <p>Descubre a nuestros vendedores estrella y conoce sus productos más populares en ShopMax.</p>
+    <br>
+    <div class="search-container">
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="¿Buscas a tu vendedor favorito?" id="searchInput">
+            <button class="search-btn" onclick="searchProducts()">
+            🚀 BUSCAR <span class="loading" id="loadingSpinner" style="display: none;"></span>
+            </button>
+            </div>
+        </div>
+  </section>
+
+  <main class="sellers-list">
+    <div class="seller-card">
+      <h2>ElectroMax</h2>
+      <p><strong>Ubicación:</strong> Ciudad de México</p>
+      <p class="seller-rating">⭐⭐⭐⭐⭐</p>
+      <p><strong>Top productos:</strong></p>
+      <ul>
+        <li>Audífonos Bluetooth X500</li>
+        <li>Smart TV 50” 4K</li>
+        <li>Powerbank 20000mAh</li>
+      </ul>
+      <br>
+      <button class="view-products">Ver todos los productos</button>
+    </div>
+
+    <div class="seller-card">
+      <h2>Casa Bella</h2>
+      <p><strong>Ubicación:</strong> Guadalajara, Jalisco</p>
+      <p class="seller-rating">⭐⭐⭐⭐☆</p>
+      <p><strong>Top productos:</strong></p>
+      <ul>
+        <li>Juego de sábanas 300 hilos</li>
+        <li>Organizador de cocina plegable</li>
+        <li>Lámpara LED de noche</li>
+      </ul>
+      <br>
+      <button class="view-products">Ver todos los productos</button>
+    </div>
+
+    <div class="seller-card">
+      <h2>Moda Trendy</h2>
+      <p><strong>Ubicación:</strong> Monterrey, NL</p>
+      <p class="seller-rating">⭐⭐⭐☆☆</p>
+      <p><strong>Top productos:</strong></p>
+      <ul>
+        <li>Sudadera oversize</li>
+        <li>Jeans mom fit</li>
+        <li>Gorra vintage</li>
+      </ul>
+      <br>
+      <button class="view-products">Ver todos los productos</button>
+    </div>
+
+    <div class="seller-card">
+      <h2>Lectura Viva</h2>
+      <p><strong>Ubicación:</strong> Puebla</p>
+      <p class="seller-rating">⭐⭐⭐⭐⭐</p>
+      <p><strong>Top productos:</strong></p>
+      <ul>
+        <li>Libro: "El poder del hábito"</li>
+        <li>Set de marcadores pastel</li>
+        <li>Agenda 2025 minimalista</li>
+      </ul>
+      <br>
+      <button class="view-products">Ver todos los productos</button>
+    </div>
+  </main>
+ <script src="./js/sellers.js"></script>
+</body>
+</html>
