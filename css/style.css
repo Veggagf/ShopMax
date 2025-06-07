@@ -12,7 +12,6 @@ body {
 }
 
 
-/* Header */
 header {
     position: relative;
     z-index: 1000;
@@ -46,7 +45,7 @@ nav {
 }
 
 .nav-links a {
-    color: #fff; /* Morado para contraste */
+    color: #fff; 
     text-decoration: none;
     font-weight: 600;
     padding: 12px 24px;
@@ -64,7 +63,6 @@ nav {
     box-shadow: 0 10px 25px rgba(255, 224, 102, 0.2);
 }
 
-/*Principal section*/
 .principal-section {
     text-align: center;
     padding: 50px 30px;
@@ -98,7 +96,6 @@ nav {
     text-shadow: 0 0 20px #3a8dde33;
 }
 
-/* Search Bar */
 .search-container {
     max-width: 800px;
     margin: 40px auto;
@@ -146,7 +143,6 @@ nav {
     box-shadow: 0 10px 30px #ffe06655;
 }
 
-/* Categories Grid */
 .categories-section {
     padding: 50px 30px;
     max-width: 1400px;
@@ -230,7 +226,6 @@ nav {
     color: #7c3aed;
 }
 
-/* Deals Section */
 .deals-section {
     background-color: #7c3aed;
     padding: 80px 30px;
@@ -621,7 +616,6 @@ nav {
     }
 }
 
-/*Tablets y móviles*/
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -673,7 +667,6 @@ nav {
     }
 }
 
-/*Móviles pequeños*/
 @media (max-width: 480px) {
     .logo {
         font-size: 1.1rem;
