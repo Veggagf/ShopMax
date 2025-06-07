@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
@@ -23,11 +24,64 @@
     </header>
 
     <main>
-        <section class="principal-section">
-            <h1>EL FUTURO DEL SHOPPING</h1>
-            <p>Descubre productos increíbles, compara precios en tiempo real y encuentra las mejores ofertas de</p>
-            <span>AMAZON</span>
-            
+        <!-- Hero Principal -->
+        <section class="hero-main">
+            <div class="hero-content">
+                <h1>Descubre, Compara y Encuentra los Mejores Productos de Amazon</h1>
+                <p class="hero-subtitle">
+                    Busca millones de productos, compara precios y descubre recomendaciones de influencers, todo en un solo lugar. ¡Información actualizada en tiempo real y sin necesidad de registro!
+                </p>
+                <a href="#searchSection" class="hero-cta">🔍 Comienza a buscar</a>
+                <div class="hero-stats">
+                    <div>
+                        <span class="stat-number">+10,000</span>
+                        <span class="stat-label">Productos analizados diariamente</span>
+                    </div>
+                    <div>
+                        <span class="stat-number">+500</span>
+                        <span class="stat-label">Ofertas activas</span>
+                    </div>
+                    <div>
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Registro requerido</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Carousel de screenshots (puedes reemplazar las imágenes por las tuyas) -->
+            <div class="hero-carousel">
+                <i class="fa-brands fa-shopify fa-beat" style="color: #FFD43B; font-size: 20rem;"></i>
+            </div>
+        </section>
+
+        <!-- ¿Qué puedes hacer aquí? -->
+        <section class="features-section">
+            <h2 class="section-title">¿Qué puedes hacer aquí?</h2>
+            <div class="features-grid" id="featuresGrid">
+                <div class="feature-card feature-morado">
+                    <span class="feature-icon">🔎</span>
+                    <h3>Buscar Productos</h3>
+                    <p>Encuentra millones de productos con información detallada y precios actualizados.</p>
+                </div>
+                <div class="feature-card feature-azul">
+                    <span class="feature-icon">🤝</span>
+                    <h3>Comparar Vendedores</h3>
+                    <p>Compara precios, reseñas y perfiles de diferentes vendedores.</p>
+                </div>
+                <div class="feature-card feature-amarillo">
+                    <span class="feature-icon">🌟</span>
+                    <h3>Descubrir Influencers</h3>
+                    <p>Explora recomendaciones de productos de tus influencers favoritos.</p>
+                </div>
+                <div class="feature-card feature-naranja">
+                    <span class="feature-icon">🔥</span>
+                    <h3>Encontrar Ofertas</h3>
+                    <p>Accede a las mejores ofertas y descuentos disponibles en Amazon.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="principal-section" id="searchSection">
+            <h1>Intenta buscando algo ... </h1>
             <div class="search-container">
                 <div class="search-bar">
                     <input type="text" class="search-input" placeholder="¿Qué estás buscando hoy? Prueba con 'iPhone', 'Gaming', 'Moda'..." id="searchInput">
@@ -35,45 +89,182 @@
                         🚀 BUSCAR <span class="loading" id="loadingSpinner" style="display: none;"></span>
                     </button>
                 </div>
-            </div>
+
             <div id="searchResults" class="products-grid" style="margin-top:40px;"></div>
         </section>
 
         <section class="categories-section">
             <h2 class="section-title">🌟 EXPLORA CATEGORÍAS</h2>
             <div class="categories-grid" id="categoriesGrid">
-                <div class="category-card" onclick="searchByCategory('Electronics')">
-                    <span class="category-icon">📱</span>
-                    <h3>Electrónicos</h3>
-                    <p>Smartphones, laptops, gadgets y la última tecnología</p>
+                <div class="category-card" onclick="searchByCategory('automotive')">
+                    <span class="category-icon">🚗</span>
+                    <h3>Auto</h3>
+                    <p>Accesorios y productos automotrices</p>
                 </div>
-                <div class="category-card" onclick="searchByCategory('Fashion')">
-                    <span class="category-icon">👙👕👖</span>
-                    <h3>Moda</h3>
-                    <p>Ropa, zapatos, accesorios y tendencias</p>
+                <div class="category-card" onclick="searchByCategory('baby')">
+                    <span class="category-icon">🍼</span>
+                    <h3>Bebé</h3>
+                    <p>Productos para bebés</p>
                 </div>
-                <div class="category-card" onclick="searchByCategory('Home')">
-                    <span class="category-icon">🏠</span>
-                    <h3>Hogar</h3>
-                    <p>Decoración, muebles y artículos para el hogar</p>
-                </div>
-                <div class="category-card" onclick="searchByCategory('Sports')">
-                    <span class="category-icon">⚽</span>
-                    <h3>Deportes</h3>
-                    <p>Equipamiento deportivo y fitness</p>
-                </div>
-                <div class="category-card" onclick="searchByCategory('Beauty')">
+                <div class="category-card" onclick="searchByCategory('beauty')">
                     <span class="category-icon">💄</span>
                     <h3>Belleza</h3>
-                    <p>Cosméticos, cuidado personal y skincare</p>
+                    <p>Cosméticos y cuidado personal</p>
                 </div>
-                <div class="category-card" onclick="searchByCategory('Gaming')">
+                <div class="category-card" onclick="searchByCategory('luxury-beauty')">
+                    <span class="category-icon">👑</span>
+                    <h3>Belleza Premium</h3>
+                    <p>Productos de belleza de lujo</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('amazon-devices')">
+                    <span class="category-icon">📱</span>
+                    <h3>Dispositivos de Amazon</h3>
+                    <p>Echo, Kindle, Fire y más</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('electronics')">
+                    <span class="category-icon">🔌</span>
+                    <h3>Electrónicos</h3>
+                    <p>Gadgets y tecnología</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('dvd')">
+                    <span class="category-icon">🎬</span>
+                    <h3>Películas y Series de TV</h3>
+                    <p>DVD y Blu-ray</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('instant-video')">
+                    <span class="category-icon">📺</span>
+                    <h3>Prime Video</h3>
+                    <p>Películas y series en streaming</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('digital-text')">
+                    <span class="category-icon">📖</span>
+                    <h3>Tienda Kindle</h3>
+                    <p>Libros electrónicos</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('fashion')">
+                    <span class="category-icon">👗</span>
+                    <h3>Ropa, Zapatos y Accesorios</h3>
+                    <p>Moda para todos</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('fashion-womens')">
+                    <span class="category-icon">👩</span>
+                    <h3>Mujeres</h3>
+                    <p>Moda para mujeres</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('fashion-mens')">
+                    <span class="category-icon">👨</span>
+                    <h3>Hombres</h3>
+                    <p>Moda para hombres</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('fashion-girls')">
+                    <span class="category-icon">👧</span>
+                    <h3>Niñas</h3>
+                    <p>Moda para niñas</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('fashion-boys')">
+                    <span class="category-icon">👦</span>
+                    <h3>Niños</h3>
+                    <p>Moda para niños</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('fashion-baby')">
+                    <span class="category-icon">🍼</span>
+                    <h3>Bebé (Moda)</h3>
+                    <p>Moda para bebés</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('grocery')">
+                    <span class="category-icon">🥫</span>
+                    <h3>Alimentos y Bebidas</h3>
+                    <p>Supermercado y despensa</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('sporting')">
+                    <span class="category-icon">🏀</span>
+                    <h3>Deportes y Aire Libre</h3>
+                    <p>Equipamiento deportivo</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('handmade')">
+                    <span class="category-icon">🧶</span>
+                    <h3>Hecho a mano</h3>
+                    <p>Productos artesanales</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('hi')">
+                    <span class="category-icon">🛠️</span>
+                    <h3>Herramientas y Mejoras del Hogar</h3>
+                    <p>Herramientas y mejoras</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('kitchen')">
+                    <span class="category-icon">🏡</span>
+                    <h3>Hogar y Cocina</h3>
+                    <p>Artículos para el hogar</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('industrial')">
+                    <span class="category-icon">🏭</span>
+                    <h3>Industria y ciencia</h3>
+                    <p>Productos industriales</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('mi')">
+                    <span class="category-icon">🎹</span>
+                    <h3>Instrumentos musicales</h3>
+                    <p>Instrumentos y accesorios</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('garden')">
+                    <span class="category-icon">🌻</span>
+                    <h3>Jardín</h3>
+                    <p>Artículos para jardín</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('toys')">
+                    <span class="category-icon">🧸</span>
+                    <h3>Juegos y juguetes</h3>
+                    <p>Juguetes para todas las edades</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('stripbooks')">
+                    <span class="category-icon">📚</span>
+                    <h3>Libros</h3>
+                    <p>Libros y literatura</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('pets')">
+                    <span class="category-icon">🐶</span>
+                    <h3>Mascotas</h3>
+                    <p>Productos para mascotas</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('popular')">
+                    <span class="category-icon">🎵</span>
+                    <h3>Música</h3>
+                    <p>CDs, vinilos y más</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('office-products')">
+                    <span class="category-icon">📎</span>
+                    <h3>Oficina y Papelería</h3>
+                    <p>Material de oficina</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('warehouse-deals')">
+                    <span class="category-icon">🏷️</span>
+                    <h3>Remates de Almacén</h3>
+                    <p>Ofertas y liquidaciones</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('hpc')">
+                    <span class="category-icon">🩺</span>
+                    <h3>Salud y Cuidado Personal</h3>
+                    <p>Salud y bienestar</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('software')">
+                    <span class="category-icon">💾</span>
+                    <h3>Software</h3>
+                    <p>Programas y licencias</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('gift-cards')">
+                    <span class="category-icon">🎁</span>
+                    <h3>Tarjetas de Regalo</h3>
+                    <p>Regala saldo Amazon</p>
+                </div>
+                <div class="category-card" onclick="searchByCategory('videogames')">
                     <span class="category-icon">🎮</span>
-                    <h3>Gaming</h3>
-                    <p>Videojuegos, consolas y accesorios gamer</p>
+                    <h3>Videojuegos</h3>
+                    <p>Consolas y juegos</p>
                 </div>
             </div>
         </section>
+
+        <section class=""></section>
 
         <section class="deals-section">
             <h2 class="section-title">🔥 OFERTAS EXPLOSIVAS</h2>
