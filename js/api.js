@@ -9,7 +9,7 @@ const API_CONFIG = {
         productReviews: '/product-reviews'
     },
     headers: {
-        'X-RapidAPI-Key': '65c9f687acmsh1f46c6ec6f2f10ap14d6c5jsnf43a816b1de5',
+        'X-RapidAPI-Key': '11e556d087msh3e6566ae114d387p11f4e5jsn3893e2d824cb',
         'X-RapidAPI-Host': 'real-time-amazon-data.p.rapidapi.com'
     },
     defaultParams: {
