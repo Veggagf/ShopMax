@@ -9,16 +9,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.18/hls.min.js" integrity="sha512-hARxLWym80kd0Bzl5/93OuW1ujaKfvmJ90yTKak/RB67JuNIjtErU2H7H3bteyfzMuqiSK0tXarT7eK6lEWBBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">ShopMax</div>
             <ul class="nav-links">
-                <li><a href="#" onclick="loadPage('home')">🏠 Inicio</a></li>
+                <li><a href="index.html" onclick="loadPage('home')">🏠 Inicio</a></li>
                 <li><a href="products.html" onclick="loadPage('product')">📦 Productos</a></li>
                 <li><a href="sellers.html" onclick="loadPage('sellers')">🏪 Vendedores</a></li>
-                <li><a href="#" onclick="loadPage('influencers')">⭐ Influencers</a></li>
+                <li><a href="influencer.html" onclick="loadPage('influencers')">⭐ Influencers</a></li>
             </ul>
         </nav>
     </header>
@@ -264,35 +265,35 @@
             </div>
         </section>
 
-        <section class=""></section>
+        <section class="sellers-section" id="sellersSection">
+            <h2 class="section-title">📢 CONOCE A LOS VENDEDORES</h2>
+            <div class="sellers-top" id="sellerTop">
+                <div class="seller-logo-large-container">
+                    <img id="sellerLogoLarge" src="" alt="Logo vendedor" class="seller-logo-large">                
+                    <!-- Logo grande del vendedor seleccionado -->
+                </div>
+            </div>
+            <div class="sellers-middle" id="sellerMiddle">
+                <div class="seller-info-card" id="sellerInfoCard">
+                    <!-- Aquí se inserta la info del vendedor por JS -->
+                </div>
+            </div>
+            <div class="sellers-bottom" id="sellerBottom">
+                <!-- Logos pequeños de todos los vendedores (tipo grid) -->
+                <!-- Cada logo debe tener un data-id para seleccionar el vendedor -->
+                <!-- Ejemplo: -->
+                <!-- <img src="logo1.png" class="seller-logo-thumb" data-id="SELLER_ID"> -->
+            </div>
+        </section>
 
-        <section class="deals-section">
+        <section class="deals-section" id="dealsSection">
             <h2 class="section-title">🔥 OFERTAS EXPLOSIVAS</h2>
-            <div class="deals-grid" id="dealsGrid">
-                <div class="deal-card">
-                    <div class="deal-badge">-70%</div>
-                    <h3>🎧 AirPods Pro Max</h3>
-                    <div class="deal-price">
-                        $199 <span class="deal-original">$649</span>
-                    </div>
-                    <p>Cancelación de ruido premium y audio espacial</p>
+            <div class="deals-carousel-container">
+                <button class="carousel-arrow left" id="dealsPrev"><i class="fa fa-chevron-left"></i></button>
+                <div class="deals-carousel" id="dealsCarousel">
+                    <!-- Aquí se insertan las deal-card dinámicamente -->
                 </div>
-                <div class="deal-card">
-                    <div class="deal-badge">-55%</div>
-                    <h3>💻 MacBook Air M2</h3>
-                    <div class="deal-price">
-                        $899 <span class="deal-original">$1,999</span>
-                    </div>
-                    <p>Chip M2, 256GB SSD, 8GB RAM</p>
-                </div>
-                <div class="deal-card">
-                    <div class="deal-badge">-45%</div>
-                    <h3>📱 iPhone 15 Pro</h3>
-                    <div class="deal-price">
-                        $649 <span class="deal-original">$1,199</span>
-                    </div>
-                    <p>Titanio, cámara de 48MP, USB-C</p>
-                </div>
+                <button class="carousel-arrow right" id="dealsNext"><i class="fa fa-chevron-right"></i></button>
             </div>
         </section>
     </main>
