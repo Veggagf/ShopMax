@@ -15,9 +15,9 @@
             <div class="logo">ShopMax</div>
             <ul class="nav-links">
                 <li><a href="#index.html" onclick="loadPage('home')">🏠 Inicio</a></li>
-                <li><a href="#" onclick="loadPage('product')">📦 Productos</a></li>
-                <li><a href="#" onclick="loadPage('sellers')">🏪 Vendedores</a></li>
-                <li><a href="#" onclick="loadPage('influencers')">⭐ Influencers</a></li>
+                <li><a href="#products.html" onclick="loadPage('product')">📦 Productos</a></li>
+                <li><a href="#sellers.html" onclick="loadPage('sellers')">🏪 Vendedores</a></li>
+                <li><a href="#influencers.html" onclick="loadPage('influencers')">⭐ Influencers</a></li>
             </ul>
         </nav>
     </header>
@@ -28,24 +28,22 @@
     <p>Descubre a nuestros vendedores estrella y conoce sus productos más populares en ShopMax.</p>
     <br>
     <div class="search-container">
-  <div class="search-bar">
-    <input type="text" class="search-input" placeholder="¿Buscas a tu vendedor favorito?" id="searchInput">
-    <button class="search-btn" onclick="searchProducts()">
-      🚀 BUSCAR <span class="loading" id="loadingSpinner" style="display: none;"></span>
-    </button>
-  </div>
-  </div>
-</div>
+      <div class="search-bar">
+        <input type="text" class="search-input" placeholder="¿Buscas a tu vendedor favorito?" id="searchInput" />
+        <button class="search-btn" onclick="searchProducts()">
+          🚀 BUSCAR <span class="loading" id="loadingSpinner" style="display: none;"></span>
+        </button>
+      </div>
+    </div>
   </section>
+
+  <main class="sellers-list"></main>
 
   <div id="sellerModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
     <h2 id="sellerName">Nombre del vendedor</h2>
-    <div id="productList">
-
-      
-    </div>
+    <div id="productList"></div>
   </div>
 </div>
 <div id="seller-card-container"></div>
@@ -54,6 +52,7 @@
 <div id="seller-products"></div>
 <div id="seller-reviews"></div>
 
- <script src="./js/sellers.js"></script>
+<script type="module" src="./js/api.js"></script>
+<script type="module" src="./js/sellers.js"></script>
 </body>
 </html>
