@@ -1,17 +1,11 @@
-// products-standalone.js - Versión mejorada con carruseles ocultos y mejores imágenes
-// Esta versión funciona sin módulos ES6 para evitar errores de importación
-
-// Configuración de la API (corregida)
 const API_CONFIG = {
     baseURL: 'https://real-time-amazon-data.p.rapidapi.com',
     headers: {
         'X-RapidAPI-Key': '65c9f687acmsh1f46c6ec6f2f10ap14d6c5jsnf43a816b1de5', // Tu API key
         'X-RapidAPI-Host': 'real-time-amazon-data.p.rapidapi.com'
-        // Removido Content-Type para GET requests
     }
 };
 
-// Variables globales para los carruseles
 let currentSlides = {
     tech: 0,
     gaming: 0,
@@ -19,8 +13,6 @@ let currentSlides = {
 };
 
 const itemsPerPage = 3;
-
-// Función corregida para buscar productos en Amazon API
 async function searchAmazonProducts(query, options = {}) {
     const {
         country = 'MX',
@@ -31,7 +23,6 @@ async function searchAmazonProducts(query, options = {}) {
         maxPrice = null
     } = options;
 
-    // Construir URL con parámetros de consulta (GET request)
     const searchParams = new URLSearchParams({
         query: query,
         country: country,
@@ -45,12 +36,9 @@ async function searchAmazonProducts(query, options = {}) {
 
     try {
         console.log('Realizando búsqueda con parámetros:', Object.fromEntries(searchParams));
-        
-        // Cambiado a GET request con parámetros en la URL
         const response = await fetch(`${API_CONFIG.baseURL}/search?${searchParams.toString()}`, {
-            method: 'GET', // Cambiado de POST a GET
+            method: 'GET',
             headers: API_CONFIG.headers
-            // Sin body para GET request
         });
 
         console.log('Status de respuesta:', response.status);
@@ -73,19 +61,16 @@ async function searchAmazonProducts(query, options = {}) {
     }
 }
 
-// Función corregida para obtener detalles del producto
-async function getProductDetails(asin, country = 'US') {
+async function getProductDetails(asin, country = 'MX') {
     try {
-        // Cambiado a GET request con parámetros en la URL
         const searchParams = new URLSearchParams({
             asin: asin,
             country: country
         });
 
         const response = await fetch(`${API_CONFIG.baseURL}/product-details?${searchParams.toString()}`, {
-            method: 'GET', // Cambiado de POST a GET
+            method: 'GET', 
             headers: API_CONFIG.headers
-            // Sin body para GET request
         });
 
         console.log('Status de respuesta para detalles:', response.status);
@@ -105,7 +90,6 @@ async function getProductDetails(asin, country = 'US') {
     }
 }
 
-// Función alternativa con endpoints diferentes (por si los anteriores no funcionan)
 async function searchAmazonProductsAlternative(query, options = {}) {
     const endpoints = [
         '/search',
@@ -139,17 +123,13 @@ async function searchAmazonProductsAlternative(query, options = {}) {
             console.log(`Error en endpoint ${endpoint}:`, error.message);
         }
     }
-
-    // Si todos los endpoints fallan, usar datos demo
     console.log('Todos los endpoints fallaron, usando datos demo');
     return getDemoProducts(query);
 }
 
-// Procesar resultados de búsqueda (mejorado)
 function processSearchResults(data) {
     console.log('Procesando datos:', data);
-    
-    // Intentar diferentes estructuras de respuesta
+
     let products = [];
     
     if (data && data.data && data.data.products) {
@@ -186,32 +166,24 @@ function processSearchResults(data) {
     }));
 }
 
-// Procesar detalles del producto (mejorado)
 function processProductDetails(data) {
     console.log('Procesando detalles:', data);
     
     if (!data) return null;
-
-    // Intentar diferentes estructuras
     const product = data.data || data.product || data;
     
     if (!product) return null;
-
-    // Función auxiliar para procesar características
     const processFeatures = (features) => {
         if (!features) return [];
         
-        // Si ya es un array, devolverlo
         if (Array.isArray(features)) {
             return features;
         }
         
-        // Si es un objeto, convertir a array de strings
         if (typeof features === 'object') {
             return Object.entries(features).map(([key, value]) => `${key}: ${value}`);
         }
         
-        // Si es una string, dividir por líneas o comas
         if (typeof features === 'string') {
             return features.split(/[,\n]/).map(f => f.trim()).filter(f => f.length > 0);
         }
@@ -338,9 +310,6 @@ function getDemoProductDetails(asin) {
     };
 }
 
-// FUNCIONES GLOBALES PARA EL HTML (mejoradas con ocultamiento de carruseles)
-
-// Función para mostrar/ocultar carruseles
 function toggleCarousels(show) {
     const carouselSections = document.querySelectorAll('.carousel-section, .hero-products');
     carouselSections.forEach(section => {
@@ -354,7 +323,6 @@ function toggleCarousels(show) {
     });
 }
 
-// Función para mostrar/ocultar sección de resultados
 function toggleResultsSection(show) {
     const resultsSection = document.getElementById('results');
     if (resultsSection) {
@@ -368,7 +336,6 @@ function toggleResultsSection(show) {
     }
 }
 
-// Función principal de búsqueda de productos (con ocultamiento de carruseles)
 window.searchProducts = async function(query) {
     if (!query || query.trim() === '') {
         showError('Por favor ingresa un término de búsqueda');
@@ -381,7 +348,6 @@ window.searchProducts = async function(query) {
     const productsContainer = document.getElementById('productsContainer');
 
     try {
-        // Ocultar carruseles y mostrar sección de resultados
         toggleCarousels(false);
         toggleResultsSection(true);
         
@@ -392,7 +358,6 @@ window.searchProducts = async function(query) {
 
         console.log('Buscando productos para:', query);
         
-        // Intentar primero el método principal, luego el alternativo
         let products = await searchAmazonProducts(query);
         
         if (!products || products.length === 0) {
@@ -413,7 +378,6 @@ window.searchProducts = async function(query) {
     } catch (error) {
         console.error('Error en la búsqueda:', error);
         showError('Ocurrió un error al buscar productos. Mostrando productos de demostración.');
-        // Mostrar productos demo como fallback
         const demoProducts = getDemoProducts(query);
         displayProducts(demoProducts);
     } finally {
@@ -423,7 +387,6 @@ window.searchProducts = async function(query) {
     }
 };
 
-// Función para limpiar búsqueda y mostrar carruseles
 window.clearSearch = function() {
     const searchInput = document.getElementById('searchInput');
     const productsContainer = document.getElementById('productsContainer');
@@ -431,15 +394,12 @@ window.clearSearch = function() {
     searchInput.value = '';
     productsContainer.innerHTML = '';
     
-    // Mostrar carruseles y ocultar resultados
     toggleCarousels(true);
     toggleResultsSection(false);
     
-    // Scroll al inicio
     window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
-// Resto del código sin cambios...
 window.viewProduct = function(productId) {
     const productMap = {
         'iphone15': 'iPhone 15 Pro Max',
@@ -455,7 +415,7 @@ window.viewProduct = function(productId) {
         'keyboard': 'Razer BlackWidow V4',
         'headset': 'SteelSeries Arctis 7P+',
         'jordan': 'Nike Air Jordan 4',
-        'hoodie': 'Supreme Box Logo Hoodie',
+        'hoodie': 'Hoodie',
         'rayban': 'Ray-Ban Aviator Classic',
         'watchband': 'Correa Apple Watch Sport',
         'levis': 'Levi\'s 501 Original',
@@ -512,7 +472,6 @@ window.viewProductDetails = async function(productId) {
     }
 };
 
-// Funciones para los carruseles
 window.nextSlide = function(carouselType) {
     const carousel = document.getElementById(`${carouselType}Carousel`);
     const totalItems = carousel.children.length;
@@ -562,7 +521,6 @@ window.handleImageError = function(img) {
     img.onerror = null;
 };
 
-// FUNCIONES AUXILIARES (mejoradas)
 
 function displayProducts(products) {
     const container = document.getElementById('productsContainer');
@@ -618,24 +576,19 @@ function displayProductDetails(product) {
     const modalContent = document.getElementById('productDetails');
     const price = formatPrice(product.price);
     const rating = formatRating(product.rating);
-
-    // Función auxiliar para formatear características
     const formatFeatures = (features) => {
         if (!features) return '';
         
-        // Si es un array
         if (Array.isArray(features)) {
             return features.map(f => `<li><i class="feature-icon">✓</i>${f}</li>`).join('');
         }
-        
-        // Si es un objeto
+
         if (typeof features === 'object') {
             return Object.entries(features).map(([key, value]) => 
                 `<li><i class="feature-icon">✓</i><strong>${key}:</strong> ${value}</li>`
             ).join('');
         }
         
-        // Si es una string
         if (typeof features === 'string') {
             return `<li><i class="feature-icon">✓</i>${features}</li>`;
         }
@@ -643,7 +596,6 @@ function displayProductDetails(product) {
         return '';
     };
 
-    // Función auxiliar para formatear especificaciones
     const formatSpecifications = (specs) => {
         if (!specs || typeof specs !== 'object') return '';
         
@@ -734,7 +686,6 @@ function displayProductDetails(product) {
     `;
 }
 
-// Función para cambiar imagen principal en el modal
 window.changeMainImage = function(imageSrc) {
     const mainImage = document.querySelector('.detail-image-enhanced');
     if (mainImage) {
@@ -742,25 +693,19 @@ window.changeMainImage = function(imageSrc) {
     }
 };
 
-// Función para mostrar tabs en el modal
 window.showTab = function(tabName) {
-    // Ocultar todos los tabs
     document.querySelectorAll('.tab-pane').forEach(pane => {
         pane.classList.remove('active');
     });
     
-    // Remover clase active de todos los botones
     document.querySelectorAll('.tab-button').forEach(button => {
         button.classList.remove('active');
     });
     
-    // Mostrar el tab seleccionado
     const selectedTab = document.getElementById(`${tabName}-tab`);
     if (selectedTab) {
         selectedTab.classList.add('active');
     }
-    
-    // Activar el botón correspondiente
     event.target.classList.add('active');
 };
 
@@ -880,14 +825,11 @@ function showNoResults() {
     `;
 }
 
-// Event listeners y inicialización
 document.addEventListener('DOMContentLoaded', function() {
     // Validar API key
     if (API_CONFIG.headers['X-RapidAPI-Key'] === 'TU_API_KEY_AQUI') {
         console.warn('⚠️ API Key no configurada. Usando datos de demostración.');
     }
-
-    // Modal
     const modal = document.getElementById('productModal');
     const closeBtn = modal.querySelector('.close');
     
@@ -914,12 +856,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Inicializar carruseles
     updateCarousel('tech');
     updateCarousel('gaming');
     updateCarousel('lifestyle');
     
-    // Auto-avance de carruseles (solo si están visibles)
+
     setInterval(() => { 
         const techSection = document.querySelector('.carousel-section');
         if (techSection && techSection.style.display !== 'none') {
@@ -940,8 +881,7 @@ document.addEventListener('DOMContentLoaded', function() {
             nextSlide('lifestyle'); 
         }
     }, 7000);
-    
-    // Scroll suave para elementos
+
     document.addEventListener('click', function(e) {
         if (e.target.matches('a[href^="#"]')) {
             e.preventDefault();
@@ -955,7 +895,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Lazy loading para imágenes
     const observerOptions = {
         root: null,
         rootMargin: '50px',
@@ -975,12 +914,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
-    // Observar imágenes existentes
     document.querySelectorAll('img[data-src]').forEach(img => {
         imageObserver.observe(img);
     });
-    
-    // Animaciones de entrada
+
     const animateOnScroll = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -989,7 +926,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, { threshold: 0.2 });
     
-    // Observar elementos para animación
     document.querySelectorAll('.product-card, .carousel-section, .hero-section').forEach(el => {
         animateOnScroll.observe(el);
     });
