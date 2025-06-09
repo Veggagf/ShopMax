@@ -28,7 +28,7 @@ header {
     position: relative;
     z-index: 1000;
     padding: 20px 0;
-    background: rgba(65, 1, 255, 0.5);
+    background:#7c3aed;
     backdrop-filter: blur(20px);
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
@@ -82,14 +82,14 @@ nav {
 
 .principal-section h1 {
     font-family: 'Orbitron', monospace;
-    font-size: 4rem;
+    font-size: 4.2rem;
     font-weight: 900;
     margin-bottom: 20px;
     color: #7c3aed;
 }
 
 .principal-section p {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 40px;
     color: #3a8dde;
 }
