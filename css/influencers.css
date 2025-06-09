@@ -11,6 +11,19 @@ body {
     overflow-x: hidden;
 }
 
+.material-symbols-outlined {
+    margin-right: 10px; /* Ajusta el espacio a tu gusto */
+    font-size: 24px; 
+  
+}
+.icon-text-row {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+  }
+  .material-symbols-outlined-modal{
+    font-size: 44px; 
+    color: #8400ff;
+  }
 header {
     position: relative;
     z-index: 1000;
@@ -28,6 +41,7 @@ nav {
     align-items: center;
     padding: 0 30px;
 }
+
 
 .logo {
     font-family: 'Orbitron', monospace;
@@ -126,28 +140,184 @@ nav {
     transform: translateY(-2px);
 }
 
+/* Estilos para la sección de información de influencers */
+.info-section {
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.info-container {
+    background: linear-gradient(135deg, #87CEEB 0%, #9370DB 100%);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.info-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(135, 206, 235, 0.1) 0%, rgba(147, 112, 219, 0.1) 100%);
+    pointer-events: none;
+}
+
+.info-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.info-text {
+    color: white;
+    text-align: left;
+}
+
+.info-text h3 {
+    font-size: 2.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+   color: #002a9d;
+    background-clip: text;
+}
+
+.info-text p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    background: rgba(64, 17, 205, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.info-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.info-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .info-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .info-container {
+        padding: 30px 20px;
+        margin: 20px 10px;
+    }
+    
+    .info-text h3 {
+        font-size: 1.8em;
+    }
+    
+    .info-text p {
+        font-size: 1em;
+        padding: 15px;
+    }
+    
+    .info-image img {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-container {
+        padding: 20px 15px;
+        margin: 15px 5px;
+    }
+    
+    .info-text h3 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    
+    .info-text p {
+        font-size: 0.9em;
+        padding: 12px;
+    }
+    
+    .info-image img {
+        max-width: 250px;
+    }
+}
+
 /* Estilos para los resultados */
 .influencer-card {
-    background: white;
+    background: linear-gradient(180deg, #984fff, #ffffff);
     border-radius: 20px;
     padding: 30px;
     margin: 20px auto;
     max-width: 800px;
     box-shadow: 0 10px 30px rgba(124, 58, 237, 0.1);
 }
+.influencer-card p {
+    color: #002a9d;
+}
+.influencer-card-result{
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+    border: 2px solid #3a8dde;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    max-width: 50%;
+    margin: 0 auto; /* Centrado horizontal */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 280px; /* Altura mínima para consistencia */
+    position: relative;
+    box-shadow: 0 8px 25px rgba(58, 141, 222, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-.influencer-card h2 {
-    color: #7c3aed;
+}
+.influencer-card-result p{
+    color: #002a9d;
+}
+.influencer-card-result h2{
+    color: #ffffff;
     margin-bottom: 15px;
     font-family: 'Orbitron', monospace;
 }
-
-.influencer-card img {
-    width: 100%;
-    border-radius: 12px;
-    margin-bottom: 18px;
-    object-fit: cover;
+.influencer-card h2 {
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-family: 'Orbitron', monospace;
 }
+.influencers-subtitulo {
+    color: #3a8dde;
+    font-family: 'Orbitron', monospace;
+    text-align: center;
+  }
+  
 
 .influencer-card h3 {
     color: #7c3aed;
@@ -156,7 +326,7 @@ nav {
 }
 
 .influencer-card a.post-link {
-    color: #3a8dde;
+    color: #215182;
     font-weight: bold;
     margin-top: 10px;
     text-decoration: none;
@@ -200,22 +370,6 @@ nav {
     margin: 0 auto;
 }
 
-.product-card {
-    background: white;
-    border-radius: 15px;
-    padding: 15px;
-    box-shadow: 0 5px 15px rgba(124, 58, 237, 0.1);
-}
-
-.product-card a {
-    color: #7c3aed;
-    text-decoration: none;
-}
-
-.product-card:hover {
-    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
-}
-
 /* Spinner de carga */
 .loading {
     display: inline-block;
@@ -223,7 +377,7 @@ nav {
     height: 20px;
     border: 3px solid rgba(255,255,255,.3);
     border-radius: 50%;
-    border-top-color: #fff;
+    border-top-color: #8400ff;
     animation: spin 1s ease-in-out infinite;
     margin-left: 10px;
 }
@@ -232,16 +386,7 @@ nav {
     to { transform: rotate(360deg); }
 }
 
-.influencers-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    justify-content: center;
-    align-items: stretch;
-    margin: 40px auto 0 auto;
-    max-width: 1200px;
-    padding: 0 20px;
-}
+
 
 .influencers-list .influencer-card {
     flex: 1 1 250px;
@@ -286,9 +431,9 @@ nav {
 }
 
 .influencer-btn {
-    background: linear-gradient(45deg, #7c3aed, #3a8dde);
+    background: #203875;
     color: #fff;
-    border: none;
+    border: 1px solid #fff;
     border-radius: 20px;
     padding: 10px 22px;
     font-weight: 600;
@@ -299,6 +444,281 @@ nav {
 }
 
 .influencer-btn:hover {
-    background: linear-gradient(45deg, #3a8dde, #7c3aed);
+    background: #7c3aed;
     transform: translateY(-2px) scale(1.04);
+   
+}
+/* Estilos actualizados para mejor organización de las tarjetas */
+
+.influencers-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    margin: 40px auto 0 auto;
+    max-width: 1400px;
+    padding: 0 20px;
+}
+
+/* Asegurar que las tarjetas tengan un tamaño consistente */
+.influencer-card-simple {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+    border: 2px solid #3a8dde;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 0; /* Quitar margin auto para que grid funcione correctamente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 280px; /* Altura mínima para consistencia */
+    position: relative;
+    box-shadow: 0 8px 25px rgba(58, 141, 222, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.influencer-card-simple:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(124, 58, 237, 0.2);
+}
+
+.influencer-name {
+    color: #7c3aed;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-family: 'Orbitron', monospace;
+}
+
+.influencer-username {
+    color: #3a8dde;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.influencer-description {
+    color: #002a9d;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    text-align: center;
+    flex-grow: 1; /* Para que el botón siempre esté en la parte inferior */
+}
+
+.more-info-btn {
+    background: linear-gradient(45deg, #ffe066, #ffd600);
+    color: #7c3aed;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(84, 80, 63, 0.3);
+    margin-top: auto; /* Empujar el botón hacia abajo */
+}
+
+.more-info-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(125, 125, 125, 0.4);
+}
+
+/* Responsive design mejorado */
+@media (max-width: 1200px) {
+    .influencers-list {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .influencers-list {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 15px;
+        padding: 0 15px;
+    }
+    
+    .influencer-card-simple {
+        padding: 25px;
+        min-height: 250px;
+    }
+    
+    .influencer-name {
+        font-size: 1.5rem;
+    }
+    
+    .influencer-username {
+        font-size: 1.1rem;
+    }
+    
+    .influencer-description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .influencers-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 10px;
+    }
+    
+    .influencer-card-simple {
+        padding: 20px;
+        min-height: 220px;
+    }
+    
+    .influencer-name {
+        font-size: 1.4rem;
+    }
+    
+    .influencer-username {
+        font-size: 1rem;
+    }
+    
+    .influencer-description {
+        font-size: 0.95rem;
+    }
+}
+
+/* Estilos para cuando hay resultados de búsqueda */
+.search-results .influencers-list {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+}
+
+.search-results .influencer-card-simple {
+    max-width: none;
+    min-height: auto;
+}
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #f4f4f4;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+
+
+
+.more-info-btn {
+    background: linear-gradient(45deg, #ffe066, #ffd600);
+    color: #7c3aed;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(84, 80, 63, 0.3);
+}
+
+.more-info-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(125, 125, 125, 0.4);
+
+}
+
+/* Estilos del Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+    margin: 10% auto;
+    padding: 0;
+    border: none;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 20px 60px rgba(124, 58, 237, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.close {
+    color: #7c3aed;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 15px 20px 0 0;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #3a8dde;
+}
+
+.modal-body {
+    padding: 30px;
+    text-align: center;
+}
+
+.modal-body h2 {
+    color: #7c3aed;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
+.modal-info {
+    background: rgba(58, 141, 222, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(58, 141, 222, 0.2);
+}
+
+.modal-info p {
+    color: #002a9d;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.modal-visit-btn {
+    background: linear-gradient(45deg, #7c3aed, #3a8dde);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+}
+
+.modal-visit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(124, 58, 237, 0.4);
 }
