@@ -1,5 +1,5 @@
 /*Variables globales para la API*/
-const RAPIDAPI_KEY = '55b4cdaaa5msh7e325c5e68ecb45p16601bjsn69d4022b22f3'
+const RAPIDAPI_KEY = 'f2ef50ddf2mshc8651cab309e24ap1875b9jsnab668945801e'
 const RAPIDAPI_HOST = 'real-time-amazon-data.p.rapidapi.com'
 
 /*Categorías disponibles*/
@@ -186,15 +186,15 @@ async function loadSellers() {
     renderSellers(sellers);
 }
 
-let sellersData = [];
-let sellerSelected = 0;
+let sellersData = []
+let sellerSelected = 0
 
 function renderSellers(sellers) {
     sellersData = sellers;
-    showSeller(sellerSelected);
+    showSeller(sellerSelected, 'right')
 
-    // Logos pequeños abajo
-    const bottom = document.getElementById('sellerBottom');
+    /*Logos pequeños abajo*/
+    const bottom = document.getElementById('sellerBottom')
     bottom.innerHTML = sellers.map((seller, i) => {
         if (seller.logo) {
             return `<img src="${seller.logo}" class="seller-logo-thumb${i === sellerSelected ? ' selected' : ''}" data-index="${i}" alt="${seller.name || ''}">`;
@@ -204,28 +204,35 @@ function renderSellers(sellers) {
                 ${seller.name ? seller.name[0].toUpperCase() : '?'}
             </div>`;
         }
-    }).join('');
+    }).join('')
 
-    // Click en logo pequeño o fallback
+    /*Click en logo pequeño o fallback*/
     bottom.querySelectorAll('.seller-logo-thumb').forEach(el => {
         el.onclick = function() {
-            sellerSelected = parseInt(this.dataset.index);
-            showSeller(sellerSelected);
+            const prev = sellerSelected;
+            const newIndex = parseInt(this.dataset.index);
+            const direction = newIndex > prev ? 'right' : 'left';
+            sellerSelected = newIndex;
+            showSeller(sellerSelected, direction);
             renderSellers(sellersData); // Para actualizar selección
         };
-    });
+    })
 }
 
-function showSeller(index) {
-    const seller = sellersData[index];
-    // Logo grande: si no hay logo, muestra la inicial
-    const logoLarge = document.getElementById('sellerLogoLarge');
+function showSeller(index, direction = 'right') {
+    const seller = sellersData[index]
+    /*Logo grande: si no hay logo, muestra la inicial*/
+    const logoLarge = document.getElementById('sellerLogoLarge')
+    const logoContainer = logoLarge.parentNode
     if (seller.logo) {
         logoLarge.src = seller.logo;
         logoLarge.alt = seller.name || '';
         logoLarge.style.background = '#fff';
         logoLarge.style.objectFit = 'contain';
         logoLarge.style.display = 'block';
+        // Elimina fallback si existe
+        const fallback = logoContainer.querySelector('#sellerLogoFallback');
+        if (fallback) fallback.remove();
     } else {
         logoLarge.src = '';
         logoLarge.alt = seller.name ? seller.name[0] : '';
@@ -233,23 +240,22 @@ function showSeller(index) {
         logoLarge.style.objectFit = 'contain';
         logoLarge.style.display = 'none';
         // Muestra la inicial como fallback
-        if (!document.getElementById('sellerLogoFallback')) {
+        if (!logoContainer.querySelector('#sellerLogoFallback')) {
             const fallback = document.createElement('div');
             fallback.id = 'sellerLogoFallback';
             fallback.className = 'seller-logo-fallback';
             fallback.textContent = seller.name ? seller.name[0].toUpperCase() : '?';
-            logoLarge.parentNode.appendChild(fallback);
+            logoContainer.appendChild(fallback);
         } else {
-            document.getElementById('sellerLogoFallback').textContent = seller.name ? seller.name[0].toUpperCase() : '?';
+            logoContainer.querySelector('#sellerLogoFallback').textContent = seller.name ? seller.name[0].toUpperCase() : '?';
         }
     }
-    if (seller.logo && document.getElementById('sellerLogoFallback')) {
-        document.getElementById('sellerLogoFallback').remove();
-    }
 
-    // Info detallada en recuadro horizontal y dos columnas
+    // Animación según dirección
+    const animClass = direction === 'left' ? 'animated-slide-in-left' : 'animated-slide-in-right'
+
     document.getElementById('sellerInfoCard').innerHTML = `
-        <div class="seller-info-horizontal">
+        <div class="seller-info-horizontal ${animClass}">
             <div class="seller-info-col">
                 <h3>${seller.name || ''}</h3>
                 <p><strong>Razón social:</strong> ${seller.business_name || 'Sin datos'}</p>
@@ -264,10 +270,10 @@ function showSeller(index) {
                 </div>
             </div>
         </div>
-    `;
+    `
 }
 
-// Llama esto al cargar la página:
+/*Llama esto al cargar la página*/
 loadSellers();
 
 /*Para visualizar las ofertas del momento*/
@@ -279,7 +285,7 @@ async function loadDeals() {
             'x-rapidapi-key': RAPIDAPI_KEY,
             'x-rapidapi-host': RAPIDAPI_HOST
         }
-    };
+    }
     try {
         const response = await fetch(url, options);
         const result = await response.json();
@@ -289,24 +295,26 @@ async function loadDeals() {
     }
 }
 
-let dealsIndex = 0;
-let dealsData = [];
+let dealsIndex = 0
+let dealsData = []
 
 function renderDealsCarousel(deals) {
-    dealsData = deals;
-    dealsIndex = 0; // Reinicia el índice al cargar nuevos deals
-    showDealCard(dealsIndex);
+    dealsData = deals
+    dealsIndex = 0
+    showDealCard(dealsIndex, 'right')
 }
 
-function showDealCard(index) {
-    const carousel = document.getElementById('dealsCarousel');
+function showDealCard(index, direction = 'right') {
+    const carousel = document.getElementById('dealsCarousel')
     if (!dealsData.length) {
-        carousel.innerHTML = '<p>No hay ofertas disponibles.</p>';
-        return;
+        carousel.innerHTML = '<p>No hay ofertas disponibles.</p>'
+        return
     }
-    const deal = dealsData[index];
+    const deal = dealsData[index]
+    /*Elige la animación según la dirección*/
+    const animClass = direction === 'left' ? 'animated-slide-in-left' : 'animated-slide-in-right'
     carousel.innerHTML = `
-        <div class="deal-card-horizontal">
+        <div class="deal-card-horizontal ${animClass}">
             <div class="deal-card-img">
                 <img src="${deal.deal_photo || ''}" alt="${deal.deal_title}">
             </div>
@@ -318,17 +326,21 @@ function showDealCard(index) {
                 <a href="${deal.deal_url}" target="_blank">Ver en Amazon</a>
             </div>
         </div>
-    `;
+    `
 }
 
+/*Botones de navegación con animación*/
 document.getElementById('dealsPrev').onclick = function() {
-    dealsIndex = (dealsIndex - 1 + dealsData.length) % dealsData.length;
-    showDealCard(dealsIndex);
-};
-document.getElementById('dealsNext').onclick = function() {
-    dealsIndex = (dealsIndex + 1) % dealsData.length;
-    showDealCard(dealsIndex);
-};
+    const prevIndex = dealsIndex
+    dealsIndex = (dealsIndex - 1 + dealsData.length) % dealsData.length
+    showDealCard(dealsIndex, 'left')
+}
 
-// Llama esto al cargar la página:
-loadDeals();
+document.getElementById('dealsNext').onclick = function() {
+    const prevIndex = dealsIndex
+    dealsIndex = (dealsIndex + 1) % dealsData.length
+    showDealCard(dealsIndex, 'right')
+}
+
+/*Llama esto al cargar la página*/
+loadDeals()
