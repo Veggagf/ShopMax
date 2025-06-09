@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Influencers-ShopMax</title>
     <link rel="stylesheet" href="/css/influencers.css">
+    <link rel="stylesheet" href="/css/influencers-info.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
 </head>
 <body>
-      <header>
+    <header>
         <nav>
             <div class="logo">ShopMax</div>
             <ul class="nav-links">
@@ -22,107 +24,70 @@
             </ul>
         </nav>
     </header>
+    
     <main>
-         <section class="principal-section">
+        <section class="principal-section">
             <h1>Influencers</h1>
-            <p>Aquí encontrarás los productos de Amazon que tus creadores de contenido favoritos usan y recomiendan.</p>
-            
+            <p>Aquí encontrarás los perfiles de los influencers en Amazon</p>
             <div class="search-container">
                 <div class="search-bar">
-                    <input type="text" class="search-input" placeholder="Busca el nombre de un influencer" id="searchInput">
+                    <input type="text" class="search-input" placeholder="Busca el nombre de usuario de un influencer" id="searchInput">
                     <button class="search-btn" onclick="searchInfluencer()">
                         🚀 BUSCAR <span class="loading" id="loadingSpinner" style="display: none;"></span>
                     </button>
                 </div>
             </div>
         </section>
-        <section>
-            <div class="influencers-list">
-                <div class="influencer-card">
-                    <h2>Kyle Richards</h2>
-                    <p><strong>País:</strong> US</p>
-                    <p><strong>Descripción:</strong> Come shop some of my favorite things!</p>
-                    <p><strong>Afiliación:</strong> Earns Commissions</p>
-                    <p><strong>Posts:</strong> 14</p>
-                    <p><strong>Creador Destacado:</strong> ✅</p>
-                    <a href="https://www.amazon.com/shop/kylerichards18" target="_blank">Visitar perfil en Amazon</a>
-                    <div class="influencer-btns">
-                        <button class="influencer-btn">Posts</button>
-                        <button class="influencer-btn">Products</button>
+        
+        <section class="info-section">
+            <div class="info-container">
+                <div class="info-content">
+                    <div class="info-text">
+                        <h3>¿Qué es un influencer en Amazon?</h3>
+                        <p>Los influencers de Amazon son creadores de contenido que comparten sus productos favoritos y recomendaciones a través de listas personalizadas. Te ayudan a descubrir productos únicos, ofertas exclusivas y tendencias que quizás no habrías encontrado por tu cuenta.</p>
                     </div>
-                </div>
-                <div class="influencer-card">
-                    <h2>The Sister Shoppers | Karisa & Kailye</h2>
-                    <p><strong>País:</strong> US</p>
-                    <p><strong>Descripción:</strong> We share the best Amazon deals and finds! Shop our favorites.</p>
-                    <p><strong>Afiliación:</strong> Earns Commissions</p>
-                    <p><strong>Posts:</strong> 100</p>
-                    <p><strong>Creador Destacado:</strong> ✅</p>
-                    <a href="https://www.amazon.com/shop/thesistershoppers" target="_blank">Visitar perfil en Amazon</a>
-                    <div class="influencer-btns">
-                        <button class="influencer-btn">Posts</button>
-                        <button class="influencer-btn">Products</button>
-                    </div>
-                </div>
-                <div class="influencer-card">
-                    <h2>Tastemade</h2>
-                    <p><strong>País:</strong> US</p>
-                    <p><strong>Descripción:</strong> Tastemade brings great taste to everything you do. Shop our favorite finds!</p>
-                    <p><strong>Afiliación:</strong> Earns Commissions</p>
-                    <p><strong>Posts:</strong> 30</p>
-                    <p><strong>Creador Destacado:</strong> ✅</p>
-                    <a href="https://www.amazon.com/shop/tastemade" target="_blank">Visitar perfil en Amazon</a>
-                    <div class="influencer-btns">
-                        <button class="influencer-btn" onclick="showTastemadePosts()">Posts</button>
-                        <button class="influencer-btn">Products</button>
-                    </div>
-                </div>
-                <div class="influencer-card">
-                    <h2>Alix Earle</h2>
-                    <p><strong>País:</strong> US</p>
-                    <p><strong>Descripción:</strong> TikTok star sharing Amazon finds, beauty, and lifestyle.</p>
-                    <p><strong>Afiliación:</strong> Earns Commissions</p>
-                    <p><strong>Posts:</strong> 50</p>
-                    <p><strong>Creador Destacado:</strong> ✅</p>
-                    <a href="https://www.amazon.com/shop/alixearle" target="_blank">Visitar perfil en Amazon</a>
-                    <div class="influencer-btns">
-                        <button class="influencer-btn">Posts</button>
-                        <button class="influencer-btn">Products</button>
+                    <div class="info-image">
+                        <img src="https://th.bing.com/th/id/R.ee4397ae30d38a112547786fb9697d79?rik=UGxQHTvO6T7AzA&pid=ImgRaw&r=0" alt="Influencer Amazon" />
                     </div>
                 </div>
             </div>
         </section>
-        <div id="postsContainer"></div>
-        <div id="productsContainer"></div>
-        <div id="tastemade-posts" style="display:none;">
-            <h2 style="text-align:center; color:#7c3aed; margin-bottom:32px;">Tastemade Posts</h2>
-            <div class="influencers-list">
-                <div class="influencer-card">
-                    <img src="https://m.media-amazon.com/images/I/41iNtpWydHL._US550_SCLZZZZZZZ_.jpg" alt="Struggle Meals: Budget Kitchen Essentials">
-                    <h3>Struggle Meals: Budget Kitchen Essentials</h3>
-                    <p><strong>Tipo:</strong> List</p>
-                    <p><strong>Items:</strong> 15</p>
-                    <a href="https://www.amazon.com/shop/tastemade/list/2H2INLQR7GDF2" target="_blank" class="post-link">Ver en Amazon</a>
-                </div>
-                <div class="influencer-card">
-                    <img src="https://m.media-amazon.com/images/I/31vEzKyj8rL._US550_SCLZZZZZZZ_.jpg" alt="Decor for Fall Entertaining">
-                    <h3>Decor for Fall Entertaining</h3>
-                    <p><strong>Tipo:</strong> List</p>
-                    <p><strong>Items:</strong> 12</p>
-                    <a href="https://www.amazon.com/shop/tastemade/list/1N84PQ3CI4NW0" target="_blank" class="post-link">Ver en Amazon</a>
-                </div>
+        
+        <h1 class="influencers-subtitulo"><br>Influencers recomendados: </h1>
+        <section>
+            <div class="influencers-list" id="influencersList">
+                <!-- Aquí se mostrarán las tarjetas dinámicamente -->
             </div>
-        </div>
+        </section>
+        
+        <script src="/js/influencers.js"></script>
     </main>
-    
-
-
-      <script src="/js/influencers.js"></script>
-      <script>
-      function showTastemadePosts() {
-        document.querySelector('.influencers-list').style.display = 'none';
-        document.getElementById('tastemade-posts').style.display = 'block';
-      }
-      </script>
+    <!-- Modal para información detallada del influencer -->
+<div id="influencerModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-body">
+            <h2 id="modalInfluencerName"></h2>
+            <div class="modal-info">
+                <p><strong><span class="material-symbols-outlined">
+                    flag
+                    </span>País: <br></strong> <span id="modalCountry"></span></p>
+                <p><strong><span class="material-symbols-outlined">
+                    photo_library
+                    </span>Número de posts: <br></strong> <span id="modalPosts"></span></p>
+                <p><strong><span class="material-symbols-outlined">
+                    paid</span>Estado:</strong> Gana comisiones</p>
+            </div>
+            <button id="modalVisitButton" class="modal-visit-btn">
+                Visitar perfil en Amazon
+                <span class="material-symbols-outlined">open_in_new</span>
+            </button>
+        </div>
+    </div>
+</div>
 </body>
+
+<footer>
+    <p>&copy; 2025 ShopMax · Todos los derechos reservados.</p>
+</footer>
 </html>
