@@ -231,6 +231,7 @@ nav {
     padding: 80px 80px;
     backdrop-filter: blur(10px);
     border-radius: 20px;
+    align-content: center;
     margin: 30px 30px 30px 30px;
 }  
 
@@ -564,11 +565,12 @@ nav {
 .deals-section .section-title {
     color: #ffd600;
 }
+
 .deal-card-horizontal {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background: linear-gradient(135deg, #fffbe6 70%, #ffd60022 100%);
+    background: linear-gradient(135deg, #fffbe6 70%, #fffbe6 100%);
     border-radius: 24px;
     border: 3px solid #fa8202;
     box-shadow: 0 6px 32px #7c3aed22, 0 2px 12px #ffd60033;
@@ -718,16 +720,20 @@ nav {
 
 /*Para sellers-section*/
 .sellers-section {
-    background: linear-gradient(120deg, #fa8202 60%, #ffd600 100%);
+    background: linear-gradient(90deg, #ff9800 60%, #fa8202 100%);
     padding: 60px 0 60px 0;
     min-height: 500px;
     border-radius: 20px;
     margin: 30px 30px 30px 30px;
+    box-shadow: 0 4px 24px #ffe06655;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
-.sellers-section .section-title {
+.sellers .section-title {
     color: #3a8dde;
+    margin-bottom: -10px;
 }
+
 .sellers-top {
     display: flex;
     justify-content: center;
@@ -752,21 +758,32 @@ nav {
 
 /* Recuadro de info del vendedor */
 .seller-info-card {
-    background: linear-gradient(120deg, #fffbe6 70%, #ffd60022 100%);
+    background: linear-gradient(120deg, #fffbe6 70%, #fffbe6 100%);
     border: 3px solid #fa8202;
     border-radius: 24px;
     box-shadow: 0 6px 32px #7c3aed22, 0 2px 12px #ffd60033;
     padding: 32px 24px;
     color: #3a8dde;
     max-width: 700px;
+    max-height: 350px;
+    overflow-y: auto;
     margin: 0 auto 24px auto;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     min-height: 180px;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
+.seller-info-card::-webkit-scrollbar {
+    width: 8px;
+    background: transparent; /* Fondo del área de scroll */
+}
+
+.seller-info-card::-webkit-scrollbar-thumb {
+    background: #fa820200;      /* Color naranja para el thumb */
+    border-radius: 10px;
+}
 /* Layout horizontal y columnas */
 .seller-info-horizontal {
     display: flex;
@@ -942,6 +959,38 @@ nav {
     }
 }
 
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+.deal-card-horizontal.animated-slide-in-left,
+.seller-info-horizontal.animated-slide-in-left {
+    animation: slideInLeft 0.5s cubic-bezier(.5,1.5,.5,1) both;
+}
+
+.deal-card-horizontal.animated-slide-in-right,
+.seller-info-horizontal.animated-slide-in-right {
+    animation: slideInRight 0.5s cubic-bezier(.5,1.5,.5,1) both;
+}
+
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -1092,4 +1141,13 @@ nav {
     .features-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.coloresutilizados {
+    color: #3a8dde;
+    color: #7c3aed;
+    color: #fa8202;
+    color: #ff9800;
+    color: #ffd600;
+    color: #ffe066;
 }
