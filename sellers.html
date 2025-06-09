@@ -23,19 +23,10 @@
   <section class="sellers-hero">
     <h1>Vendedores destacados</h1>
     <p>Descubre a nuestros vendedores estrella y conoce sus productos más populares en ShopMax.</p>
-    <div class="search-container">
-      <div class="search-bar">
-        <input type="text" class="search-input" placeholder="¿Buscas a tu vendedor favorito?" id="searchInput" />
-        <button class="search-btn" onclick="searchProducts()">
-          🚀 BUSCAR <span class="loading" id="loadingSpinner" style="display: none;"></span>
-        </button>
-      </div>
-    </div>
   </section>
 
   <main>
     <div class="sellers-list">
-      <!-- Tarjetas de Vendedores Predefinidas -->
       <div class="seller-card" data-seller-id="1">
         <img src="https://via.placeholder.com/80?text=V1" alt="Logo del vendedor" class="seller-logo">
         <h2>Vendedor Estrella 1</h2>
@@ -49,6 +40,8 @@
           <li>Artículo Bestseller</li>
           <li>Oferta Especial del Mes</li>
         </ul>
+        <br>
+        <br>
         <button class="view-products" onclick="showSellerInfo('1')">Ver todos los productos</button>
       </div>
 
@@ -65,17 +58,19 @@
           <li>Artículo Popular</li>
           <li>Oferta del Día</li>
         </ul>
+        <br>
+        <br>
         <button class="view-products" onclick="showSellerInfo('2')">Ver todos los productos</button>
       </div>
     </div>
   </main>
 
-  <!-- Modal -->
   <div id="sellerModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
       <h2 id="sellerName">Nombre del vendedor</h2>
       <div id="productList"></div>
+
     </div>
   </div>
   <script src="./js/sellers.js"></script>
