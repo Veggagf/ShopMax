@@ -7,7 +7,7 @@
 body {
     font-family: 'Inter', sans-serif;
     background: #fff;
-    color: #3a8dde;   
+    color: #7c3aed;   
     overflow-x: hidden;
     min-height: 100vh;
 }
@@ -18,7 +18,7 @@ header {
     position: relative;
     z-index: 1000;
     padding: 20px 0;
-    background: rgba(65, 1, 255, 0.5);
+    background:#7c3aed;
     backdrop-filter: blur(20px);
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
@@ -338,7 +338,7 @@ nav {
 }
 
 .modal-content {
-    background: linear-gradient(135deg, rgba(129, 192, 255, 0.95), rgba(196, 161, 255, 0.95));
+    background: linear-gradient(135deg,#7c3aed,#3a8dde);
     backdrop-filter: blur(20px);
     margin: 2% auto;
     padding: 40px;
@@ -454,7 +454,7 @@ nav {
 }
 
 .product-preview {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 12px;
     padding: 20px;
     text-align: center;
@@ -471,14 +471,14 @@ nav {
 
 .product-preview img {
     width: 100%;
-    height: 150px;
+    height: 250px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 15px;
 }
 
 .product-preview h5 {
-    color: #ffffff;
+    color: #7c3aed;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     margin: 10px 0;
@@ -494,7 +494,7 @@ nav {
 }
 
 .preview-btn {
-    background: linear-gradient(135deg, #7c3aed, #0096ff);
+    background: linear-gradient(135deg, #7c3aed,#ffd600);
     color: #000;
     border: none;
     padding: 8px 16px;
@@ -528,7 +528,7 @@ nav {
 }
 
 .carousel-btn:hover {
-    background: #a78bfa;
+    background: #ffe066;
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -558,7 +558,7 @@ nav {
 
 .dot.active,
 .dot:hover {
-    background-color: #7c3aed;
+    background-color: #ffe066;
     box-shadow: 0 0 10px #a78bfa;
 }
 
@@ -702,7 +702,7 @@ nav {
     position: absolute;
     top: 10px;
     left: 10px;
-    background: #ff6b35;
+    background: #fa8202;
     color: white;
     padding: 4px 8px;
     border-radius: 12px;
@@ -730,7 +730,7 @@ nav {
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 10px;
-    color: #2c3e50;
+    color:#a78bfa;
     line-height: 1.4;
 }
 
@@ -753,7 +753,7 @@ nav {
 .current-price {
     font-size: 20px;
     font-weight: bold;
-    color: #e74c3c;
+    color: #ffd600;
 }
 
 .original-price {
@@ -785,7 +785,7 @@ nav {
 }
 
 .btn-primary-enhanced {
-    background: #3498db;
+    background: #7c3aed;
     color: white;
 }
 
@@ -795,7 +795,7 @@ nav {
 }
 
 .btn-secondary-enhanced {
-    background: #f39c12;
+    background: linear-gradient(135deg, #7c3aed,#ffd600);
     color: white;
 }
 
@@ -860,13 +860,13 @@ nav {
     font-size: 28px;
     font-weight: 700;
     margin-bottom: 15px;
-    color: #2c3e50;
+    color: #d7c9ff;
     line-height: 1.3;
 }
 
 .detail-brand {
     font-size: 16px;
-    color: #7f8c8d;
+    color: #b7c6c7;
     margin-bottom: 15px;
 }
 
@@ -884,7 +884,7 @@ nav {
 
 .rating-count {
     font-size: 16px;
-    color: #7f8c8d;
+    color: #b7c6c7;
 }
 
 .detail-price-enhanced {
@@ -894,7 +894,7 @@ nav {
 .current-price-large {
     font-size: 32px;
     font-weight: bold;
-    color: #e74c3c;
+    color: #ff7700;
 }
 
 .original-price-large {
@@ -929,7 +929,7 @@ nav {
 .btn-buy-now {
     width: 100%;
     padding: 15px 30px;
-    background: linear-gradient(135deg, #f39c12, #e67e22);
+    background: linear-gradient(135deg, #f39c12, #ffd600);
     color: white;
     border: none;
     border-radius: 12px;
@@ -944,7 +944,7 @@ nav {
 }
 
 .btn-buy-now:hover {
-    background: linear-gradient(135deg, #e67e22, #d35400);
+    background: linear-gradient(135deg, #e67e22, #ffd600);
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(230, 126, 34, 0.3);
 }
@@ -963,15 +963,15 @@ nav {
     border: none;
     font-size: 16px;
     font-weight: 600;
-    color: #7f8c8d;
+    color: #b197ea;
     cursor: pointer;
     transition: all 0.3s ease;
     border-bottom: 3px solid transparent;
 }
 
 .tab-button.active {
-    color: #3498db;
-    border-bottom-color: #3498db;
+    color: #f7f7f7;
+    border-bottom-color: #ffffff;
 }
 
 .tab-button:hover {
@@ -995,7 +995,7 @@ nav {
 .detail-description-enhanced {
     font-size: 16px;
     line-height: 1.6;
-    color: #2c3e50;
+    color: #f7ddff;
 }
 
 .detail-features-enhanced .features-list {
@@ -1005,6 +1005,7 @@ nav {
 
 .detail-features-enhanced .features-list li {
     padding: 12px 0;
+    color: #f7ddff;
     border-bottom: 1px solid #ecf0f1;
     display: flex;
     align-items: center;
