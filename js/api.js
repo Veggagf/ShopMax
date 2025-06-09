@@ -204,10 +204,49 @@ function getDemoProducts(query) {
     ];
 }
 
+// --- Funciones para datos del vendedor (perfil, reviews, productos) ---
+const SELLER_CONFIG = {
+    sellerId: 'A02211013Q5HP3OMSZC7W',
+    country: 'US'
+};
+
+/**
+ * Obtiene el perfil del vendedor
+ * @returns {Promise<object>} - Perfil del vendedor
+ */
+async function getSellerProfile() {
+    const url = `${API_CONFIG.baseURL}/seller-profile?seller_id=${SELLER_CONFIG.sellerId}&country=${SELLER_CONFIG.country}`;
+    const res = await fetch(url, { method: 'GET', headers: API_CONFIG.headers });
+    return res.json();
+}
+
+/**
+ * Obtiene reseñas del vendedor
+ * @returns {Promise<object>} - Reseñas del vendedor
+ */
+async function getSellerReviews() {
+    const url = `${API_CONFIG.baseURL}/seller-reviews?seller_id=${SELLER_CONFIG.sellerId}&country=${SELLER_CONFIG.country}&star_rating=ALL&page=1`;
+    const res = await fetch(url, { method: 'GET', headers: API_CONFIG.headers });
+    return res.json();
+}
+
+/**
+ * Obtiene productos del vendedor
+ * @returns {Promise<object>} - Productos del vendedor
+ */
+async function getSellerProducts() {
+    const url = `${API_CONFIG.baseURL}/seller-products?seller_id=${SELLER_CONFIG.sellerId}&country=${SELLER_CONFIG.country}&page=1&sort_by=RELEVANCE`;
+    const res = await fetch(url, { method: 'GET', headers: API_CONFIG.headers });
+    return res.json();
+}
+
 // Exportar las funciones principales
 export {
     API_CONFIG,
     searchProducts,
     getProductDetails,
-    getDemoProducts
+    getDemoProducts,
+    getSellerProfile,
+    getSellerReviews,
+    getSellerProducts
 };
